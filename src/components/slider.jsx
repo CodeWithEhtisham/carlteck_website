@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 const Slider = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const videoRef = useRef(null);
 
-  // Array of local video file paths
   const videos = [
-    '/videos/day.mp4',
-    '/videos/night.mp4'
+    'day.mp4',
+    'night.mp4'
   ];
 
   const nextVideo = () => {
@@ -17,10 +17,14 @@ const Slider = () => {
     setCurrentVideoIndex((prevIndex) => (prevIndex - 1 + videos.length) % videos.length);
   };
 
+  const handleVideoEnd = () => {
+    setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videos.length);
+  };
+
   return (
-    <div className="slider-container">
-      <video controls autoPlay muted className="slider-video">
-        <source src={videos[currentVideoIndex]} type="video/mp4" />
+    <div className="slider-container" style={{ opacity: 0.4 }}>
+      <video ref={videoRef} autoPlay muted className="slider-video" controls={false} onEnded={handleVideoEnd}>
+        <source src={`/videos/${videos[currentVideoIndex]}`} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <div className="slider-controls">

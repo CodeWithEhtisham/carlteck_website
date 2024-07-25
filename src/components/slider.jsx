@@ -49,8 +49,8 @@ const Slider = () => {
         {/* Text in left middle */}
 
       </div>
-        <div style={{ position: 'absolute', top: '50%', left: '10%', transform: 'translateY(-50%)', color: '#fff', fontSize: '34px', fontWeight: 'bold', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', zIndex: 2 }}>
-        <h1 className="elementor-heading-title elementor-size-default">We are the <br />
+        <div style={{ position: 'absolute', top: '50%', left: '2.5rem', transform: 'translateY(-50%)', color: '#fff', fontSize: '35px' }}>
+        <h1 className="">We are the <br />
         <span style={{color: '#e8293b', fontWeight:'800'}}>Next Generation</span> of the<br />
         <b><span style={{color: '#e8293b', fontWeight:'800'}}>Advertising World</span></b></h1>
         </div>

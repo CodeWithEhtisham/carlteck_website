@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import Navbar from './Nav';
 
 const Slider = () => {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
@@ -28,18 +29,31 @@ const Slider = () => {
   // Effect to start playing the next video automatically when index changes
   useEffect(() => {
     const video = videoRef.current;
-    
+
     // Reset to beginning and play when video index changes
     video.load();
     video.play();
   }, [currentVideoIndex]); // Re-run effect when currentVideoIndex changes
 
   return (
-    <div className="slider-container" style={{ opacity: 0.4 }}>
-      <video ref={videoRef} autoPlay muted className="slider-video" controls={false}>
-        <source src={`/videos/${videos[currentVideoIndex]}`} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+    <div className="slider-container" style={{ position: 'relative'}}>
+      {/* Navigation bar */}
+      <Navbar />
+
+      {/* Video player */}
+      <div style={{ position: 'relative', width: '100%', paddingTop: '56.25%',opacity: 0.4  /* 16:9 aspect ratio */ }}>
+        <video ref={videoRef} autoPlay muted className="slider-video" controls={false} style={{ position: 'absolute', width: '100%', height: '100%', top: 0, left: 0 }}>
+          <source src={`/videos/${videos[currentVideoIndex]}`} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        {/* Text in left middle */}
+
+      </div>
+        <div style={{ position: 'absolute', top: '50%', left: '10%', transform: 'translateY(-50%)', color: '#fff', fontSize: '34px', fontWeight: 'bold', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)', zIndex: 2 }}>
+        <h1 className="elementor-heading-title elementor-size-default">We are the <br />
+        <span style={{color: '#e8293b', fontWeight:'800'}}>Next Generation</span> of the<br />
+        <b><span style={{color: '#e8293b', fontWeight:'800'}}>Advertising World</span></b></h1>
+        </div>
     </div>
   );
 };

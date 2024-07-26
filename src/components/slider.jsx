@@ -36,24 +36,23 @@ const Slider = () => {
   }, [currentVideoIndex]); // Re-run effect when currentVideoIndex changes
 
   return (
-    <div className="slider-container" style={{ position: 'relative'}}>
+    <div className="slider-container" style={{ position: 'relative', height: '100vh' }}>
       {/* Navigation bar */}
       <Navbar />
 
       {/* Video player */}
-      <div style={{ position: 'relative', width: '100%', paddingTop: '56.25%',opacity: 0.4  /* 16:9 aspect ratio */ }}>
-        <video ref={videoRef} autoPlay muted className="slider-video" controls={false} style={{ position: 'absolute', width: '100%', height: '100%', top: 0, left: 0 }}>
+      <div style={{ position: 'relative', width: '100%', height: '100%',opacity: 0.3 }}>
+        <video ref={videoRef} autoPlay muted className="slider-video" controls={false} style={{ position: 'absolute', width: '100%', height: '100%', top: 0, left: 0, objectFit: 'cover' }}>
           <source src={`/videos/${videos[currentVideoIndex]}`} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         {/* Text in left middle */}
-
       </div>
-        <div style={{ position: 'absolute', top: '50%', left: '2.5rem', transform: 'translateY(-50%)', color: '#fff', fontSize: '35px' }}>
+      <div style={{ position: 'absolute', top: '50%', left: '2.5rem', transform: 'translateY(-50%)', color: '#fff', fontSize: '35px' }}>
         <h1 className="">We are the <br />
-        <span style={{color: '#e8293b', fontWeight:'800'}}>Next Generation</span> of the<br />
-        <b><span style={{color: '#e8293b', fontWeight:'800'}}>Advertising World</span></b></h1>
-        </div>
+        <span style={{ color: '#e8293b', fontWeight: '800' }}>Next Generation</span> of the<br />
+        <b><span style={{ color: '#e8293b', fontWeight: '800' }}>Advertising World</span></b></h1>
+      </div>
     </div>
   );
 };

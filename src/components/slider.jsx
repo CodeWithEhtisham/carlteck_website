@@ -48,10 +48,10 @@ const Slider = () => {
         </video>
         {/* Text in left middle */}
       </div>
-      <div style={{ position: 'absolute', top: '50%', left: '2.5rem', transform: 'translateY(-50%)', color: '#fff', fontSize: '35px' }}>
+      <div style={{ position: 'absolute', top: '50%', left: '10%', transform: 'translateY(-50%)', color: '#fff', fontSize: '50px' }}>
         <h1 className="">We are the <br />
-        <span style={{ color: '#e8293b', fontWeight: '800' }}>Next Generation</span> of the<br />
-        <b><span style={{ color: '#e8293b', fontWeight: '800' }}>Advertising World</span></b></h1>
+        <span style={{ color: '#e8293b', fontWeight: '800' }}>Next Generation</span> of the 
+        <b><span style={{ color: '#e8293b', fontWeight: '800' }}> Advertising World</span></b></h1>
       </div>
     </div>
   );
